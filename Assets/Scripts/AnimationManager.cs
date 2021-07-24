@@ -26,10 +26,18 @@ public class AnimationManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        moveVelocity = rb.velocity.magnitude;
+        animator.SetFloat(velocity, moveVelocity);
+    }
+
     public void FootAlignment(float alpha, AnimationCurve prCurve, AnimationCurve lfCurve)
     {
         animator.SetFloat(passReach, prCurve.Evaluate(alpha));
+        print(prCurve.Evaluate(alpha));
         animator.SetFloat(activeFoot, lfCurve.Evaluate(alpha));
+        print(lfCurve.Evaluate(alpha));
     }
 
     public void UpdateAnimatorValues(float hMov, float vMov)
