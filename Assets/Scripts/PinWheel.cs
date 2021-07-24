@@ -28,7 +28,7 @@ public class PinWheel : MonoBehaviour
     Rigidbody parentBody;
     Vector3 distanceVector;
     float spokeLength;
-    public float vDistance, vRatio;
+    public float vDistance, vRatio, normalisedFactor;
     
     // Start is called before the first frame update
     void Start()
@@ -52,15 +52,17 @@ public class PinWheel : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + Vector3.up * spokeLength * -1, Color.cyan);
         vDistance = Vector3.Distance(transform.position + Vector3.up * spokeLength * -1, transform.position + (transform.TransformDirection(wheelSpokes[activeSpoke].spokeDirection) * spokeLength));
         vRatio = Mathf.Clamp01(vDistance/1.4f);
-        if(vRatio<0.05)
+        if(vRatio<0.3)
         {
-            if (activeSpoke == 3)
-            {
-                activeSpoke = 0;
-            }
-            else activeSpoke++;
+            vRatio = 0.3f;
+            
         }
-        aMan.FootAlignment(1- (vRatio), wheelSpokes[activeSpoke].footAlignment.passReach, wheelSpokes[activeSpoke].footAlignment.leftRight);
+        normalisedFactor = (vRatio - 0.3f) / 0.7f;
+
+        
+
+
+        aMan.FootAlignment(1- (normalisedFactor), wheelSpokes[activeSpoke].footAlignment.passReach, wheelSpokes[activeSpoke].footAlignment.leftRight);
 
     }
 }
