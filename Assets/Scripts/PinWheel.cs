@@ -26,6 +26,8 @@ public class PinWheel : MonoBehaviour
     float turnCrankSpeed;
     AnimationManager aMan;
     Rigidbody parentBody;
+    Vector3 distanceVector;
+    float spokeLength;
     
     // Start is called before the first frame update
     void Start()
@@ -33,25 +35,19 @@ public class PinWheel : MonoBehaviour
         parentBody = playerObject.GetComponent<Rigidbody>();
         aMan = playerObject.GetComponent<AnimationManager>();
         turnCrankSpeed = aMan.turnCrankSpeed;
+        distanceVector = new Vector3(0, -1, 0);
+        spokeLength = aMan.pinWheelRadius;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.localRotation *= Quaternion.AngleAxis(parentBody.velocity.magnitude * turnCrankSpeed * Time.deltaTime, Vector3.right);
-
-        //todo: use an actual wheel
-        RaycastHit fwHit, upHit, bkHit, dwHit;
-        //pinwheel goes here
-        if (Physics.Raycast(transform.position, transform.forward, out fwHit, 50, 0))
-        {
-            Debug.DrawRay(transform.position, transform.forward * fwHit.distance, Color.yellow);
-
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.forward * 50, Color.white);
-
-        }
+        Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[0].spokeDirection) * spokeLength), Color.white);
+        Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[1].spokeDirection) * spokeLength), Color.white);
+        Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[2].spokeDirection) * spokeLength), Color.white);
+        Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[3].spokeDirection) * spokeLength), Color.white);
+        Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[activeSpoke].spokeDirection) * spokeLength), Color.green);
+        Debug.DrawLine(transform.position, transform.position + Vector3.up * spokeLength * -1, Color.cyan);
     }
 }
