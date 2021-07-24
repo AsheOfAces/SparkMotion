@@ -24,12 +24,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479644059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6856404490431501866}
-  m_RootOrder: 11
+  m_Father: {fileID: 1485142216393252682}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1479644061
 MonoBehaviour:
@@ -78,6 +78,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5489034290110114572}
+  - {fileID: 1479644060}
   - {fileID: 6856404490431501866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3ff3030d05bd24f8105633827cf71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationCurves: []
   movementSpeed: 3.5
   rotationSpeed: 15
 --- !u!114 &5678265475825584455
@@ -214,7 +216,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c7a1fb78ffb13d4aaadfd0d8198bf49, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c7a1fb78ffb13d4aaadfd0d8198bf49, type: 3}
       propertyPath: m_LocalPosition.x

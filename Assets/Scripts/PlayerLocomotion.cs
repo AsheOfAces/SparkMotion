@@ -11,6 +11,8 @@ public class PlayerLocomotion : MonoBehaviour
 
     Vector3 moveDirection;
     Transform cameraObject;
+
+    
     
 
     public float movementSpeed = 7;
