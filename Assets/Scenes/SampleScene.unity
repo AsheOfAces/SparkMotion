@@ -2462,6 +2462,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9065339783988196015, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
 --- !u!4 &1811875725 stripped
@@ -3121,27 +3125,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.passReach.m_Curve.Array.data[0].inSlope
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.passReach.m_Curve.Array.data[1].inSlope
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[0].inSlope
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[1].inSlope
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[0].inSlope
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[1].inSlope
-      value: 0
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[2].footAlignment.passReach.m_Curve.Array.data[0].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[2].footAlignment.passReach.m_Curve.Array.data[1].inSlope
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[3].footAlignment.leftRight.m_Curve.Array.data[0].inSlope
@@ -3149,6 +3161,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[3].footAlignment.leftRight.m_Curve.Array.data[1].inSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[0].inSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[1].inSlope
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
@@ -3165,15 +3185,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.passReach.m_Curve.Array.data[0].outSlope
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.passReach.m_Curve.Array.data[1].outSlope
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[0].outSlope
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[1].inWeight
@@ -3181,19 +3201,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[1].outSlope
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[0].outSlope
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[1].inWeight
-      value: 0
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[1].outSlope
-      value: 0
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[2].footAlignment.passReach.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[2].footAlignment.passReach.m_Curve.Array.data[1].outSlope
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[3].footAlignment.leftRight.m_Curve.Array.data[0].outSlope
@@ -3208,6 +3236,18 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[0].outSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[1].outSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.leftRight.m_Curve.Array.data[0].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
@@ -3217,10 +3257,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[0].outWeight
-      value: 0
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[3].footAlignment.leftRight.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[0].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
@@ -3233,27 +3277,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.passReach.m_Curve.Array.data[0].tangentMode
-      value: 34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[0].footAlignment.passReach.m_Curve.Array.data[1].tangentMode
-      value: 34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[0].tangentMode
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.leftRight.m_Curve.Array.data[1].tangentMode
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[0].tangentMode
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[1].footAlignment.passReach.m_Curve.Array.data[1].tangentMode
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[2].footAlignment.leftRight.m_Curve.Array.data[0].tangentMode
@@ -3264,11 +3308,27 @@ PrefabInstance:
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[2].footAlignment.passReach.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[2].footAlignment.passReach.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[3].footAlignment.leftRight.m_Curve.Array.data[0].tangentMode
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.data[3].footAlignment.leftRight.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: wheelSpokes.Array.data[3].footAlignment.passReach.m_Curve.Array.data[1].tangentMode
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1485142216393252682, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
