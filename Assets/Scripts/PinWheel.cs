@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Animancer;
 using UnityEngine;
 
 public class PinWheel : MonoBehaviour
@@ -7,15 +8,9 @@ public class PinWheel : MonoBehaviour
     [System.Serializable]
     public class WheelSpoke
     {
-        [System.Serializable]
-        public class FootAlignment
-        {
-            public AnimationCurve passReach;
-            public AnimationCurve leftRight;
-        }
 
         public Vector3 spokeDirection; //direction vector for spoke
-        public FootAlignment footAlignment; //target keyframe values
+        public AnimationClip keyState;
 
     }
 
@@ -23,11 +18,13 @@ public class PinWheel : MonoBehaviour
     public int activeSpoke = 0;
     public GameObject playerObject;
     public WheelSpoke[] wheelSpokes;
-    float turnCrankSpeed;
+    public float turnCrankSpeed;
+    public AnimancerComponent animancerState;
+
     AnimationManager aMan;
     Rigidbody parentBody;
     Vector3 distanceVector;
-    float spokeLength;
+    public float spokeLength;
     public float vDistance, vRatio, normalisedFactor;
     Quaternion targetRotation;
     bool surveyorPassed = false;
@@ -37,9 +34,7 @@ public class PinWheel : MonoBehaviour
     {
         parentBody = playerObject.GetComponent<Rigidbody>();
         aMan = playerObject.GetComponent<AnimationManager>();
-        turnCrankSpeed = aMan.turnCrankSpeed;
         distanceVector = new Vector3(0, -1, 0);
-        spokeLength = aMan.pinWheelRadius;
         targetRotation = Quaternion.identity;
     }
 
@@ -71,6 +66,7 @@ public class PinWheel : MonoBehaviour
                     activeSpoke = 0;
                 }
                 else activeSpoke++;
+                animancerState.Play(wheelSpokes[activeSpoke].keyState, 0.25f);
                 surveyorPassed = false;
             }
         }
@@ -79,7 +75,7 @@ public class PinWheel : MonoBehaviour
         
 
 
-        aMan.FootAlignment(1- (normalisedFactor), wheelSpokes[activeSpoke].footAlignment.passReach, wheelSpokes[activeSpoke].footAlignment.leftRight);
+       // aMan.FootAlignment(1- (normalisedFactor), wheelSpokes[activeSpoke].footAlignment.passReach, wheelSpokes[activeSpoke].footAlignment.leftRight);
 
     }
 

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
+    /*
+      
+    [DEPRECATED UNLESS NEEDED]
+      
+      
     public Animator animator;
     public GameObject animPinWheel;
     public float pinWheelRadius = 0.75f, turnCrankSpeed = 50;
@@ -43,5 +48,5 @@ public class AnimationManager : MonoBehaviour
     public void UpdateAnimatorValues(float hMov, float vMov)
     {
 
-    }
+    }*/
 }
