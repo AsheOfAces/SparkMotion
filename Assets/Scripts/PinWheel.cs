@@ -8,28 +8,24 @@ public class PinWheel : MonoBehaviour
     [System.Serializable]
     public class WheelSpoke
     {
-
-        public Vector3 spokeDirection; //direction vector for spoke
+        public Vector3 spokeDirection; 
         public AnimationClip keyState;
-
     }
-
-
     public int activeSpoke = 0;
     public GameObject playerObject;
     public WheelSpoke[] wheelSpokes;
     public float turnCrankSpeed;
-    public AnimancerComponent animancerState;
+    
+    public float spokeLength;
+    public float vDistance, vRatio, normalisedFactor;
 
     AnimationManager aMan;
     Rigidbody parentBody;
     Vector3 distanceVector;
-    public float spokeLength;
-    public float vDistance, vRatio, normalisedFactor;
+
     Quaternion targetRotation;
     bool surveyorPassed = false;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         parentBody = playerObject.GetComponent<Rigidbody>();
@@ -37,8 +33,6 @@ public class PinWheel : MonoBehaviour
         distanceVector = new Vector3(0, -1, 0);
         targetRotation = Quaternion.identity;
     }
-
-    // Update is called once per frame
     void Update()
     {
         targetRotation = targetRotation * Quaternion.AngleAxis(parentBody.velocity.magnitude * turnCrankSpeed * Time.deltaTime, Vector3.right);
@@ -66,21 +60,16 @@ public class PinWheel : MonoBehaviour
                     activeSpoke = 0;
                 }
                 else activeSpoke++;
-                animancerState.Play(wheelSpokes[activeSpoke].keyState, 0.25f);
+                if(parentBody.velocity.magnitude < 6 && parentBody.velocity.magnitude > 0)
+                {
+                    aMan.PlayState(1, true, true, activeSpoke);
+                }
+                if (parentBody.velocity.magnitude >= 6)
+                {
+                    aMan.PlayState(2, true, true, activeSpoke);
+                }
                 surveyorPassed = false;
             }
         }
-        
-
-        
-
-
-       // aMan.FootAlignment(1- (normalisedFactor), wheelSpokes[activeSpoke].footAlignment.passReach, wheelSpokes[activeSpoke].footAlignment.leftRight);
-
-    }
-
-    private void LateUpdate()
-    {
-        
     }
 }

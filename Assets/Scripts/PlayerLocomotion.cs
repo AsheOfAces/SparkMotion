@@ -17,6 +17,11 @@ public class PlayerLocomotion : MonoBehaviour
 
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
+    public LayerMask groundLayer;
+    public float inAirTimer;
+    public float fallingVelocity;
+    public float leapingVelocity;
+    public bool isGrounded;
 
     private void Awake()
     {
@@ -27,6 +32,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void UltimateMovementHandler()
     {
+        HandleFalling();
         HandleMovement();
         HandleRotation();
     }
@@ -60,5 +66,37 @@ public class PlayerLocomotion : MonoBehaviour
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = playerRotation;
+    }
+
+    private void HandleFalling()
+    {
+        RaycastHit hit;
+        Vector3 raycastOrigin = transform.position;
+        if(!isGrounded)
+        {
+            //Play fall animation
+            print("bruh");
+            inAirTimer += Time.deltaTime;
+            playerRigidbody.AddForce(transform.forward * leapingVelocity);
+            playerRigidbody.AddForce(-Vector3.up*fallingVelocity*inAirTimer);
+
+            
+        }
+        if (Physics.CheckSphere(transform.position, 0.1f))
+        {
+            inAirTimer = 0;
+            isGrounded = true;
+            
+        }
+        else
+        {
+            print("bruh");
+            isGrounded = false;
+        }
+       
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 0.2f);
     }
 }

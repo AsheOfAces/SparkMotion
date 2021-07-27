@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float cameraX, cameraY;
+    public float xSens, ySens;
 
     private void Awake()
     {
@@ -47,12 +48,15 @@ public class InputManager : MonoBehaviour
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-       // animationManager.UpdateAnimatorValues(0, moveAmount);
+       if(moveAmount == 0)
+        {
+            animationManager.PlayState(0, false, false, 0);
+        }
     }
 
     private void HandleCameraInput()
     {
-        cameraX = cameraInput.x;
-        cameraY = cameraInput.y;
+        cameraX = cameraInput.x * xSens;
+        cameraY = cameraInput.y * ySens;
     }
 }
