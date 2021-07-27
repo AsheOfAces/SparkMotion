@@ -74,15 +74,14 @@ public class PlayerLocomotion : MonoBehaviour
         Vector3 raycastOrigin = transform.position;
         if(!isGrounded)
         {
-            //Play fall animation
-            print("bruh");
+            //TODO: Play fall animation here
             inAirTimer += Time.deltaTime;
             playerRigidbody.AddForce(transform.forward * leapingVelocity);
             playerRigidbody.AddForce(-Vector3.up*fallingVelocity*inAirTimer);
 
             
         }
-        if (Physics.CheckSphere(transform.position, 0.1f))
+        if (Physics.CheckSphere(transform.position+new Vector3(0,0.1f,0), 0.2f, groundLayer))
         {
             inAirTimer = 0;
             isGrounded = true;
@@ -90,7 +89,6 @@ public class PlayerLocomotion : MonoBehaviour
         }
         else
         {
-            print("bruh");
             isGrounded = false;
         }
        
