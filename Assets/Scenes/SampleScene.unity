@@ -1349,9 +1349,17 @@ PrefabInstance:
       propertyPath: collisionRadius
       value: 0.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 8435746054430249266, guid: 6f25529505600f34aab0eae0e8697018, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8435746055566469701, guid: 6f25529505600f34aab0eae0e8697018, type: 3}
       propertyPath: m_Name
       value: Camera Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435746055566469701, guid: 6f25529505600f34aab0eae0e8697018, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8435746055566469755, guid: 6f25529505600f34aab0eae0e8697018, type: 3}
       propertyPath: m_RootOrder
@@ -1403,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435746055869088491, guid: 6f25529505600f34aab0eae0e8697018, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f25529505600f34aab0eae0e8697018, type: 3}
@@ -2289,6 +2297,36 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1707600222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707600223}
+  m_Layer: 0
+  m_Name: cameraReference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707600223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707600222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2117662136}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1811875724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2307,6 +2345,10 @@ PrefabInstance:
     - target: {fileID: 4562799558224224499, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
       propertyPath: m_Convex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475875840202900849, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8345070699079395522, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
       propertyPath: m_RootOrder
@@ -2456,6 +2498,11 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!4 &1939159795 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5489034290110114572, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+  m_PrefabInstance: {fileID: 6389603964014212606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1989461183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,6 +2845,11 @@ Transform:
   m_Father: {fileID: 1811875725}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &2117662136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1485142216393252682, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+  m_PrefabInstance: {fileID: 6389603964014212606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6389603964014212606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3354,6 +3406,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: playerCenter
+      value: 
+      objectReference: {fileID: 1939159795}
+    - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: movementSpeed
       value: 2.5
       objectReference: {fileID: 0}
@@ -3369,6 +3425,10 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: referenceCameraTransform
+      value: 
+      objectReference: {fileID: 1707600223}
     - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: animationCurves.Array.size
       value: 1

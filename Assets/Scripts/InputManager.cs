@@ -48,10 +48,7 @@ public class InputManager : MonoBehaviour
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-       if(moveAmount == 0)
-        {
-            animationManager.PlayState(0, false, false, 0);
-        }
+
     }
 
     private void HandleCameraInput()

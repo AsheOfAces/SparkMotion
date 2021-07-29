@@ -11,9 +11,11 @@ public class PlayerLocomotion : MonoBehaviour
 
     Vector3 moveDirection;
     Transform cameraObject;
+    public Transform playerCenter;
+    public Transform referenceCameraTransform;
 
-    
-    
+
+
 
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
@@ -22,12 +24,18 @@ public class PlayerLocomotion : MonoBehaviour
     public float fallingVelocity;
     public float leapingVelocity;
     public bool isGrounded;
+    public bool airTimeFlag;
+
+    private Vector3 prevPos;
+    public Vector3 actualVelocity;
+    private float referenceY;
 
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
+        StartCoroutine(CalcVelocity());
     }
 
     public void UltimateMovementHandler()
@@ -39,9 +47,9 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleMovement()
     {
-        moveDirection = cameraObject.forward * inputManager.verticalInput;
-        moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
-        moveDirection.Normalize();
+        moveDirection = cameraObject.forward.normalized * inputManager.verticalInput;
+        moveDirection = moveDirection + cameraObject.right.normalized * inputManager.horizontalInput;
+        //moveDirection.Normalize();
         moveDirection.y = 0;
         moveDirection *= movementSpeed;
 
@@ -70,7 +78,6 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleFalling()
     {
-        RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
         if(!isGrounded)
         {
@@ -85,7 +92,6 @@ public class PlayerLocomotion : MonoBehaviour
         {
             inAirTimer = 0;
             isGrounded = true;
-            
         }
         else
         {
@@ -93,8 +99,25 @@ public class PlayerLocomotion : MonoBehaviour
         }
        
     }
+
+    IEnumerator CalcVelocity()
+    {
+
+        while (Application.isPlaying)
+        {
+            // Position at frame start
+            prevPos = transform.position;
+            // Wait till it the end of the frame
+            yield return new WaitForEndOfFrame();
+            // Calculate velocity: Velocity = DeltaPosition / DeltaTime
+            actualVelocity = (prevPos - transform.position) / Time.deltaTime;
+            Debug.Log(playerRigidbody.velocity);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, 0.2f);
     }
+
 }

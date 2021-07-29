@@ -15,9 +15,11 @@ public class PinWheel : MonoBehaviour
     public GameObject playerObject;
     public WheelSpoke[] wheelSpokes;
     public float turnCrankSpeed;
+
     
     public float spokeLength;
     public float vDistance, vRatio, normalisedFactor;
+    private Vector3 actualVelocity;
 
     AnimationManager aMan;
     Rigidbody parentBody;
@@ -35,8 +37,15 @@ public class PinWheel : MonoBehaviour
     }
     void Update()
     {
-        targetRotation = targetRotation * Quaternion.AngleAxis(parentBody.velocity.magnitude * turnCrankSpeed * Time.deltaTime, Vector3.right);
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, parentBody.velocity.magnitude * turnCrankSpeed * Time.deltaTime);
+        this.actualVelocity = playerObject.GetComponent<PlayerLocomotion>().actualVelocity;
+        if (actualVelocity.magnitude == 0)
+        {
+            aMan.PlayState(0, false, false, 0);
+        }
+
+
+        targetRotation = targetRotation * Quaternion.AngleAxis(actualVelocity.magnitude * turnCrankSpeed * Time.deltaTime, Vector3.right);
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, actualVelocity.magnitude * turnCrankSpeed * Time.deltaTime);
         Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[0].spokeDirection) * spokeLength), Color.white);
         Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[1].spokeDirection) * spokeLength), Color.white);
         Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[2].spokeDirection) * spokeLength), Color.white);
