@@ -1,17 +1,5 @@
 {
   "dependencies": {
-    "com.av.smart-hierarchy": {
-      "version": "file:C:/Users/Acey/UnityPkg/Smart-Hierarchy",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
-    "com.av.smart-inspector": {
-      "version": "file:C:/Users/Acey/UnityPkg/Smart-Inspector",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.collab-proxy": {
       "version": "1.5.7",
       "depth": 0,
