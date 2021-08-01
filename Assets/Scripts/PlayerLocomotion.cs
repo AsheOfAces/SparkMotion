@@ -11,6 +11,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     Vector3 moveDirection;
     Transform cameraObject;
+    Transform t_Reference;
     public Transform playerCenter;
     public Transform referenceCameraTransform;
 
@@ -36,10 +37,12 @@ public class PlayerLocomotion : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
         StartCoroutine(CalcVelocity());
+        t_Reference = new GameObject().transform;
     }
 
     public void UltimateMovementHandler()
     {
+        t_Reference.eulerAngles = new Vector3(0, cameraObject.eulerAngles.y, 0);
         HandleFalling();
         HandleMovement();
         HandleRotation();
@@ -47,21 +50,30 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleMovement()
     {
-        moveDirection = cameraObject.forward.normalized * inputManager.verticalInput;
-        moveDirection = moveDirection + cameraObject.right.normalized * inputManager.horizontalInput;
+        
+
+
+        moveDirection = t_Reference.forward.normalized * inputManager.verticalInput;
+        moveDirection = moveDirection + t_Reference.right.normalized * inputManager.horizontalInput;
         //moveDirection.Normalize();
         moveDirection.y = 0;
         moveDirection *= movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
         playerRigidbody.velocity = movementVelocity;
+
+
+        if (isGrounded && moveDirection.magnitude == 0)
+        {
+            inputManager.animationManager.PlayState(0, false, false, 0);
+        }
     }
 
     private void HandleRotation()
     {
         Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObject.forward * inputManager.verticalInput;
-        targetDirection += cameraObject.right * inputManager.horizontalInput;
+        targetDirection = t_Reference.forward * inputManager.verticalInput;
+        targetDirection += t_Reference.right * inputManager.horizontalInput;
         targetDirection.Normalize();
         targetDirection.y = 0;
 
@@ -78,6 +90,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleFalling()
     {
+        RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
         if(!isGrounded)
         {
@@ -88,7 +101,7 @@ public class PlayerLocomotion : MonoBehaviour
 
             
         }
-        if (Physics.CheckSphere(transform.position+new Vector3(0,0.1f,0), 0.2f, groundLayer))
+        if(Physics.SphereCast(raycastOrigin + new Vector3(0,0.5f,0),0.2f, -transform.up,out hit, 0.51f,groundLayer))
         {
             inAirTimer = 0;
             isGrounded = true;

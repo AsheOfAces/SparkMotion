@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
-    AnimationManager animationManager;
+    [HideInInspector]public AnimationManager animationManager;
     public Vector2 movementInput;
     public Vector2 cameraInput;
     private float moveAmount;
@@ -18,7 +18,6 @@ public class InputManager : MonoBehaviour
     {
         animationManager = GetComponent<AnimationManager>();
     }
-
     private void OnEnable()
     {
         if (playerControls == null)
@@ -31,26 +30,21 @@ public class InputManager : MonoBehaviour
 
         playerControls.Enable();
     }
-
     private void OnDisable()
     {
         playerControls.Disable();
     }
-
     public void UltimateInputHandler()
     {
         HandleMovementInput();
         HandleCameraInput();
     }
-
     private void HandleMovementInput()
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-
     }
-
     private void HandleCameraInput()
     {
         cameraX = cameraInput.x * xSens;
