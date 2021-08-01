@@ -38,8 +38,8 @@ public class PinWheel : MonoBehaviour
     }
     void Update()
     {
-        targetRotation = targetRotation * Quaternion.AngleAxis(parentBody.velocity.magnitude * turnCrankSpeed * Time.deltaTime, Vector3.right);
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, parentBody.velocity.magnitude * turnCrankSpeed * Time.deltaTime);
+        targetRotation = targetRotation * Quaternion.AngleAxis(parentBody.velocity.normalized.magnitude * turnCrankSpeed * Time.deltaTime, Vector3.right);
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, parentBody.velocity.normalized.magnitude * turnCrankSpeed * Time.deltaTime);
         Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[0].spokeDirection) * spokeLength), Color.white);
         Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[1].spokeDirection) * spokeLength), Color.white);
         Debug.DrawLine(transform.position, transform.position + (transform.TransformDirection(wheelSpokes[2].spokeDirection) * spokeLength), Color.white);
@@ -63,11 +63,11 @@ public class PinWheel : MonoBehaviour
                     activeSpoke = 0;
                 }
                 else activeSpoke++;
-                if(parentBody.velocity.magnitude < 6 && parentBody.velocity.magnitude > 0)
+                if(parentBody.velocity.normalized.magnitude < 6 && parentBody.velocity.normalized.magnitude > 0)
                 {
                     aMan.PlayState(1, true, true, activeSpoke);
                 }
-                if (parentBody.velocity.magnitude >= 6)
+                if (parentBody.velocity.normalized.magnitude >= 6)
                 {
                     aMan.PlayState(2, true, true, activeSpoke);
                 }

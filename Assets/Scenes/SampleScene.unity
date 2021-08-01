@@ -2905,7 +2905,7 @@ PrefabInstance:
       objectReference: {fileID: 1843769591}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: turnCrankSpeed
-      value: 135
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 1479644061, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: wheelSpokes.Array.size
@@ -3389,7 +3389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1485142216393252682, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.09
+      value: 4.019
       objectReference: {fileID: 0}
     - target: {fileID: 1485142216393252682, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3445,7 +3445,7 @@ PrefabInstance:
       objectReference: {fileID: 1939159795}
     - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: movementSpeed
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: fallingVelocity
