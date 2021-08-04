@@ -3429,11 +3429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3547905482780125081, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: xSens
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3547905482780125081, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: ySens
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219631165045745335, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: m_UseGravity
