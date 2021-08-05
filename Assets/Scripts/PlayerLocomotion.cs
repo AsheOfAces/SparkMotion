@@ -33,7 +33,6 @@ public class PlayerLocomotion : MonoBehaviour
     public Vector3 actualVelocity;
     private float referenceY;
     private Quaternion targetRotation;
-
     private void Awake()
     {
         targetRotation = Quaternion.identity;
