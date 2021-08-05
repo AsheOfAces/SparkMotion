@@ -14,6 +14,7 @@ public class PlayerLocomotion : MonoBehaviour
     Transform t_Reference;
     public Transform playerCenter;
     public Transform referenceCameraTransform;
+    public Transform pupModel;
 
 
 
@@ -24,15 +25,18 @@ public class PlayerLocomotion : MonoBehaviour
     public float inAirTimer;
     public float fallingVelocity;
     public float leapingVelocity;
+    public float tilt;
     public bool isGrounded;
     public bool airTimeFlag;
 
     private Vector3 prevPos;
     public Vector3 actualVelocity;
     private float referenceY;
+    private Quaternion targetRotation;
 
     private void Awake()
     {
+        targetRotation = Quaternion.identity;
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
@@ -55,7 +59,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         moveDirection = t_Reference.forward.normalized * inputManager.verticalInput;
         moveDirection = moveDirection + t_Reference.right.normalized * inputManager.horizontalInput;
-        //moveDirection.Normalize();
+        moveDirection.Normalize();
         moveDirection.y = 0;
         moveDirection *= movementSpeed;
 
@@ -71,21 +75,34 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
+        //old roatator code
         Vector3 targetDirection = Vector3.zero;
-        targetDirection = t_Reference.forward * inputManager.verticalInput;
-        targetDirection += t_Reference.right * inputManager.horizontalInput;
+        Vector3 vDirection = playerRigidbody.velocity.normalized;
+        targetDirection = vDirection;
+        
         targetDirection.Normalize();
         targetDirection.y = 0;
 
         if (targetDirection == Vector3.zero)
         {
-            targetDirection = transform.forward;
+            targetDirection = pupModel.transform.forward;
+            targetRotation = Quaternion.LookRotation(targetDirection);
+        }
+        else
+        {
+            //this doesn't work right now, and I'm not quite sure why
+            targetRotation = Quaternion.LookRotation(targetDirection) * Quaternion.Euler ((playerRigidbody.velocity.x) * -tilt, 0.0f, (playerRigidbody.velocity.z) * -tilt);
         }    
 
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        
+        Quaternion playerRotation = Quaternion.Slerp(pupModel.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        transform.rotation = playerRotation;
+        pupModel.transform.rotation = playerRotation;
+
+        
+
+        //Only rotate the mesh.
+        
     }
 
     private void HandleFalling()
@@ -124,7 +141,6 @@ public class PlayerLocomotion : MonoBehaviour
             yield return new WaitForEndOfFrame();
             // Calculate velocity: Velocity = DeltaPosition / DeltaTime
             actualVelocity = (prevPos - transform.position) / Time.deltaTime;
-            Debug.Log(playerRigidbody.velocity);
         }
     }
 

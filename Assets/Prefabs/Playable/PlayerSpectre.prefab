@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1479644060}
-  - component: {fileID: 1479644061}
+  - component: {fileID: 7299873357322282098}
   m_Layer: 0
   m_Name: Pinwheel
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 1485142216393252682}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1479644061
+--- !u!114 &7299873357322282098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1479644059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6497960144d7314e92a175098802743, type: 3}
+  m_Script: {fileID: 11500000, guid: 425fc4a08983460e5940506fbba902a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 2355610536690991926}
 --- !u!1 &2355610536690991926
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,13 +124,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77f38fce327bbe45bfb41f33422b109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 704526756466248784}
-  animPinWheel: {fileID: 1479644059}
-  pinWheelRadius: 1
-  turnCrankSpeed: 50
-  lMask:
-    serializedVersion: 2
-    m_Bits: 8
+  animancerState: {fileID: 0}
+  fStates: []
+  activeState:
+    isActive: 0
+    isLoco: 0
+    isPlaying: 0
+    name: 
+    sClip: {fileID: 0}
+    fadeLength: 0.25
+    fadeMode: 0
+    easeFunct: 0
+    locoIndex: 0
+    locoSeq: []
+    locoFadeLength: []
+    locoEaseFunct: 
+  pastState:
+    isActive: 0
+    isLoco: 0
+    isPlaying: 0
+    name: 
+    sClip: {fileID: 0}
+    fadeLength: 0.25
+    fadeMode: 0
+    easeFunct: 0
+    locoIndex: 0
+    locoSeq: []
+    locoFadeLength: []
+    locoEaseFunct: 
 --- !u!114 &3547905482780125081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,12 +164,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662f8cb6c02f8ab4abebeed63f6179fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationManager: {fileID: 0}
   movementInput: {x: 0, y: 0}
   cameraInput: {x: 0, y: 0}
   horizontalInput: 0
   verticalInput: 0
   cameraX: 0
   cameraY: 0
+  xSens: 0
+  ySens: 0
 --- !u!114 &6017544304300576961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +185,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3ff3030d05bd24f8105633827cf71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationCurves: []
+  playerCenter: {fileID: 0}
+  referenceCameraTransform: {fileID: 0}
   movementSpeed: 3.5
   rotationSpeed: 15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  inAirTimer: 0
+  fallingVelocity: 0
+  leapingVelocity: 0
+  isGrounded: 0
+  airTimeFlag: 0
+  actualVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &5678265475825584455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,10 +304,5 @@ PrefabInstance:
 --- !u!4 &6856404490431501866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c7a1fb78ffb13d4aaadfd0d8198bf49, type: 3}
-  m_PrefabInstance: {fileID: 6389603964881301953}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &704526756466248784 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 8c7a1fb78ffb13d4aaadfd0d8198bf49, type: 3}
   m_PrefabInstance: {fileID: 6389603964881301953}
   m_PrefabAsset: {fileID: 0}

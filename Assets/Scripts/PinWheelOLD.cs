@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Animancer;
 using UnityEngine;
 
-public class PinWheel : MonoBehaviour
+public class PinWheelOLD : MonoBehaviour
 {
     [System.Serializable]
     public class WheelSpoke

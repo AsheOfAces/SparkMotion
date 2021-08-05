@@ -2428,6 +2428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8345070700331616360, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8345070700331616361, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -2451,6 +2455,11 @@ GameObject:
 --- !u!95 &1843769589 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 704526756466248784, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+  m_PrefabInstance: {fileID: 6389603964014212606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1843769590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6856404490431501866, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
   m_PrefabInstance: {fileID: 6389603964014212606}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1843769591
@@ -3439,6 +3448,14 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: tilt
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
+      propertyPath: pupModel
+      value: 
+      objectReference: {fileID: 1843769590}
     - target: {fileID: 6017544304300576961, guid: 18c0b88ae607f6940a2a378f8376e1d2, type: 3}
       propertyPath: playerCenter
       value: 
