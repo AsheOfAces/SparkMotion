@@ -12,6 +12,7 @@ public class PlayerLocomotion : MonoBehaviour
     Vector3 moveDirection;
     Transform cameraObject;
     Transform t_Reference;
+    Transform t_MeshReference;
     public Transform playerCenter;
     public Transform referenceCameraTransform;
     public Transform pupModel;
@@ -41,11 +42,13 @@ public class PlayerLocomotion : MonoBehaviour
         cameraObject = Camera.main.transform;
         StartCoroutine(CalcVelocity());
         t_Reference = new GameObject().transform;
+        t_MeshReference = new GameObject().transform;
     }
 
     public void UltimateMovementHandler()
     {
         t_Reference.eulerAngles = new Vector3(0, cameraObject.eulerAngles.y, 0);
+        t_MeshReference.eulerAngles = new Vector3(0, pupModel.eulerAngles.y, 0);
         HandleFalling();
         HandleMovement();
         HandleRotation();
@@ -84,13 +87,13 @@ public class PlayerLocomotion : MonoBehaviour
 
         if (targetDirection == Vector3.zero)
         {
-            targetDirection = pupModel.transform.forward;
+            targetDirection = t_MeshReference.transform.forward;
             targetRotation = Quaternion.LookRotation(targetDirection);
         }
         else
         {
-            //this doesn't work right now, and I'm not quite sure why
-            targetRotation = Quaternion.LookRotation(targetDirection) * Quaternion.Euler ((playerRigidbody.velocity.x) * -tilt, 0.0f, (playerRigidbody.velocity.z) * -tilt);
+            targetDirection -= new Vector3(0,tilt,0);
+            targetRotation = Quaternion.LookRotation(targetDirection);
         }    
 
         
